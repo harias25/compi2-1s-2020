@@ -1,4 +1,4 @@
-# Laboratorio Organización de Lenguajes y Compiladores 2
+# Laboratorio Organización de Lenguajes y Compiladores 2 Sección C
 ## Practica 0
 
 La primera practica será instalar y descargar algunas tecnologias que les ayudarán con las primeras clases de laboratorio, el sistema operativo queda a su discreción.
