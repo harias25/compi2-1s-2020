@@ -1,0 +1,26 @@
+    init             -> instrucciones
+
+    instrucciones    -> instrucciones instruccion
+                    |   instruccion 
+
+    instruccion     -> imprimir_instr 
+                    | error 
+
+
+    imprimir_instr  -> IMPRIMIR PARIZQ expresion PARDER PTCOMA
+
+    expresion       ->  primitiva 
+                    |   expresion_unaria
+                    |   expresion_numerica 
+                    |   PARIZQ expresion PARDER
+
+    expresion_numerica      ->   expresion MAS expresion 
+                            |   expresion MENOS expresion 
+                            |   expresion POR expresion
+                            |   expresion DIVIDIDO expresion
+                            |   expresion RESTO expresion
+                            
+    expresion_unaria        ->   MENOS expresion %prec UMENOS 
+
+    primitiva   ->  ENTERO
+                |   DECIMAL 

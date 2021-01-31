@@ -1,0 +1,601 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> init
+Rule 1     init -> instrucciones
+Rule 2     instrucciones -> instrucciones instruccion
+Rule 3     instrucciones -> instruccion
+Rule 4     instruccion -> imprimir_instr
+Rule 5     instruccion -> error
+Rule 6     imprimir_instr -> IMPRIMIR PARIZQ expresion PARDER PTCOMA
+Rule 7     expresion -> primitiva
+Rule 8     expresion -> expresion_unaria
+Rule 9     expresion -> expresion_numerica
+Rule 10    expresion -> PARIZQ expresion PARDER
+Rule 11    expresion_numerica -> expresion MAS expresion
+Rule 12    expresion_numerica -> expresion MENOS expresion
+Rule 13    expresion_numerica -> expresion POR expresion
+Rule 14    expresion_numerica -> expresion DIVIDIDO expresion
+Rule 15    expresion_numerica -> expresion RESTO expresion
+Rule 16    expresion_unaria -> MENOS expresion
+Rule 17    primitiva -> ENTERO
+Rule 18    primitiva -> DECIMAL
+
+Terminals, with rules where they appear
+
+DECIMAL              : 18
+DIVIDIDO             : 14
+ENTERO               : 17
+IMPRIMIR             : 6
+MAS                  : 11
+MENOS                : 12 16
+PARDER               : 6 10
+PARIZQ               : 6 10
+POR                  : 13
+PTCOMA               : 6
+RESTO                : 15
+error                : 5
+
+Nonterminals, with rules where they appear
+
+expresion            : 6 10 11 11 12 12 13 13 14 14 15 15 16
+expresion_numerica   : 9
+expresion_unaria     : 8
+imprimir_instr       : 4
+init                 : 0
+instruccion          : 2 3
+instrucciones        : 1 2
+primitiva            : 7
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . init
+    (1) init -> . instrucciones
+    (2) instrucciones -> . instrucciones instruccion
+    (3) instrucciones -> . instruccion
+    (4) instruccion -> . imprimir_instr
+    (5) instruccion -> . error
+    (6) imprimir_instr -> . IMPRIMIR PARIZQ expresion PARDER PTCOMA
+
+    error           shift and go to state 5
+    IMPRIMIR        shift and go to state 6
+
+    init                           shift and go to state 1
+    instrucciones                  shift and go to state 2
+    instruccion                    shift and go to state 3
+    imprimir_instr                 shift and go to state 4
+
+state 1
+
+    (0) S' -> init .
+
+
+
+state 2
+
+    (1) init -> instrucciones .
+    (2) instrucciones -> instrucciones . instruccion
+    (4) instruccion -> . imprimir_instr
+    (5) instruccion -> . error
+    (6) imprimir_instr -> . IMPRIMIR PARIZQ expresion PARDER PTCOMA
+
+    $end            reduce using rule 1 (init -> instrucciones .)
+    error           shift and go to state 5
+    IMPRIMIR        shift and go to state 6
+
+    instruccion                    shift and go to state 7
+    imprimir_instr                 shift and go to state 4
+
+state 3
+
+    (3) instrucciones -> instruccion .
+
+    error           reduce using rule 3 (instrucciones -> instruccion .)
+    IMPRIMIR        reduce using rule 3 (instrucciones -> instruccion .)
+    $end            reduce using rule 3 (instrucciones -> instruccion .)
+
+
+state 4
+
+    (4) instruccion -> imprimir_instr .
+
+    error           reduce using rule 4 (instruccion -> imprimir_instr .)
+    IMPRIMIR        reduce using rule 4 (instruccion -> imprimir_instr .)
+    $end            reduce using rule 4 (instruccion -> imprimir_instr .)
+
+
+state 5
+
+    (5) instruccion -> error .
+
+    error           reduce using rule 5 (instruccion -> error .)
+    IMPRIMIR        reduce using rule 5 (instruccion -> error .)
+    $end            reduce using rule 5 (instruccion -> error .)
+
+
+state 6
+
+    (6) imprimir_instr -> IMPRIMIR . PARIZQ expresion PARDER PTCOMA
+
+    PARIZQ          shift and go to state 8
+
+
+state 7
+
+    (2) instrucciones -> instrucciones instruccion .
+
+    error           reduce using rule 2 (instrucciones -> instrucciones instruccion .)
+    IMPRIMIR        reduce using rule 2 (instrucciones -> instrucciones instruccion .)
+    $end            reduce using rule 2 (instrucciones -> instrucciones instruccion .)
+
+
+state 8
+
+    (6) imprimir_instr -> IMPRIMIR PARIZQ . expresion PARDER PTCOMA
+    (7) expresion -> . primitiva
+    (8) expresion -> . expresion_unaria
+    (9) expresion -> . expresion_numerica
+    (10) expresion -> . PARIZQ expresion PARDER
+    (17) primitiva -> . ENTERO
+    (18) primitiva -> . DECIMAL
+    (16) expresion_unaria -> . MENOS expresion
+    (11) expresion_numerica -> . expresion MAS expresion
+    (12) expresion_numerica -> . expresion MENOS expresion
+    (13) expresion_numerica -> . expresion POR expresion
+    (14) expresion_numerica -> . expresion DIVIDIDO expresion
+    (15) expresion_numerica -> . expresion RESTO expresion
+
+    PARIZQ          shift and go to state 9
+    ENTERO          shift and go to state 14
+    DECIMAL         shift and go to state 15
+    MENOS           shift and go to state 16
+
+    expresion                      shift and go to state 10
+    primitiva                      shift and go to state 11
+    expresion_unaria               shift and go to state 12
+    expresion_numerica             shift and go to state 13
+
+state 9
+
+    (10) expresion -> PARIZQ . expresion PARDER
+    (7) expresion -> . primitiva
+    (8) expresion -> . expresion_unaria
+    (9) expresion -> . expresion_numerica
+    (10) expresion -> . PARIZQ expresion PARDER
+    (17) primitiva -> . ENTERO
+    (18) primitiva -> . DECIMAL
+    (16) expresion_unaria -> . MENOS expresion
+    (11) expresion_numerica -> . expresion MAS expresion
+    (12) expresion_numerica -> . expresion MENOS expresion
+    (13) expresion_numerica -> . expresion POR expresion
+    (14) expresion_numerica -> . expresion DIVIDIDO expresion
+    (15) expresion_numerica -> . expresion RESTO expresion
+
+    PARIZQ          shift and go to state 9
+    ENTERO          shift and go to state 14
+    DECIMAL         shift and go to state 15
+    MENOS           shift and go to state 16
+
+    expresion                      shift and go to state 17
+    primitiva                      shift and go to state 11
+    expresion_unaria               shift and go to state 12
+    expresion_numerica             shift and go to state 13
+
+state 10
+
+    (6) imprimir_instr -> IMPRIMIR PARIZQ expresion . PARDER PTCOMA
+    (11) expresion_numerica -> expresion . MAS expresion
+    (12) expresion_numerica -> expresion . MENOS expresion
+    (13) expresion_numerica -> expresion . POR expresion
+    (14) expresion_numerica -> expresion . DIVIDIDO expresion
+    (15) expresion_numerica -> expresion . RESTO expresion
+
+    PARDER          shift and go to state 18
+    MAS             shift and go to state 19
+    MENOS           shift and go to state 20
+    POR             shift and go to state 21
+    DIVIDIDO        shift and go to state 22
+    RESTO           shift and go to state 23
+
+
+state 11
+
+    (7) expresion -> primitiva .
+
+    PARDER          reduce using rule 7 (expresion -> primitiva .)
+    MAS             reduce using rule 7 (expresion -> primitiva .)
+    MENOS           reduce using rule 7 (expresion -> primitiva .)
+    POR             reduce using rule 7 (expresion -> primitiva .)
+    DIVIDIDO        reduce using rule 7 (expresion -> primitiva .)
+    RESTO           reduce using rule 7 (expresion -> primitiva .)
+
+
+state 12
+
+    (8) expresion -> expresion_unaria .
+
+    PARDER          reduce using rule 8 (expresion -> expresion_unaria .)
+    MAS             reduce using rule 8 (expresion -> expresion_unaria .)
+    MENOS           reduce using rule 8 (expresion -> expresion_unaria .)
+    POR             reduce using rule 8 (expresion -> expresion_unaria .)
+    DIVIDIDO        reduce using rule 8 (expresion -> expresion_unaria .)
+    RESTO           reduce using rule 8 (expresion -> expresion_unaria .)
+
+
+state 13
+
+    (9) expresion -> expresion_numerica .
+
+    PARDER          reduce using rule 9 (expresion -> expresion_numerica .)
+    MAS             reduce using rule 9 (expresion -> expresion_numerica .)
+    MENOS           reduce using rule 9 (expresion -> expresion_numerica .)
+    POR             reduce using rule 9 (expresion -> expresion_numerica .)
+    DIVIDIDO        reduce using rule 9 (expresion -> expresion_numerica .)
+    RESTO           reduce using rule 9 (expresion -> expresion_numerica .)
+
+
+state 14
+
+    (17) primitiva -> ENTERO .
+
+    PARDER          reduce using rule 17 (primitiva -> ENTERO .)
+    MAS             reduce using rule 17 (primitiva -> ENTERO .)
+    MENOS           reduce using rule 17 (primitiva -> ENTERO .)
+    POR             reduce using rule 17 (primitiva -> ENTERO .)
+    DIVIDIDO        reduce using rule 17 (primitiva -> ENTERO .)
+    RESTO           reduce using rule 17 (primitiva -> ENTERO .)
+
+
+state 15
+
+    (18) primitiva -> DECIMAL .
+
+    PARDER          reduce using rule 18 (primitiva -> DECIMAL .)
+    MAS             reduce using rule 18 (primitiva -> DECIMAL .)
+    MENOS           reduce using rule 18 (primitiva -> DECIMAL .)
+    POR             reduce using rule 18 (primitiva -> DECIMAL .)
+    DIVIDIDO        reduce using rule 18 (primitiva -> DECIMAL .)
+    RESTO           reduce using rule 18 (primitiva -> DECIMAL .)
+
+
+state 16
+
+    (16) expresion_unaria -> MENOS . expresion
+    (7) expresion -> . primitiva
+    (8) expresion -> . expresion_unaria
+    (9) expresion -> . expresion_numerica
+    (10) expresion -> . PARIZQ expresion PARDER
+    (17) primitiva -> . ENTERO
+    (18) primitiva -> . DECIMAL
+    (16) expresion_unaria -> . MENOS expresion
+    (11) expresion_numerica -> . expresion MAS expresion
+    (12) expresion_numerica -> . expresion MENOS expresion
+    (13) expresion_numerica -> . expresion POR expresion
+    (14) expresion_numerica -> . expresion DIVIDIDO expresion
+    (15) expresion_numerica -> . expresion RESTO expresion
+
+    PARIZQ          shift and go to state 9
+    ENTERO          shift and go to state 14
+    DECIMAL         shift and go to state 15
+    MENOS           shift and go to state 16
+
+    expresion                      shift and go to state 24
+    primitiva                      shift and go to state 11
+    expresion_unaria               shift and go to state 12
+    expresion_numerica             shift and go to state 13
+
+state 17
+
+    (10) expresion -> PARIZQ expresion . PARDER
+    (11) expresion_numerica -> expresion . MAS expresion
+    (12) expresion_numerica -> expresion . MENOS expresion
+    (13) expresion_numerica -> expresion . POR expresion
+    (14) expresion_numerica -> expresion . DIVIDIDO expresion
+    (15) expresion_numerica -> expresion . RESTO expresion
+
+    PARDER          shift and go to state 25
+    MAS             shift and go to state 19
+    MENOS           shift and go to state 20
+    POR             shift and go to state 21
+    DIVIDIDO        shift and go to state 22
+    RESTO           shift and go to state 23
+
+
+state 18
+
+    (6) imprimir_instr -> IMPRIMIR PARIZQ expresion PARDER . PTCOMA
+
+    PTCOMA          shift and go to state 26
+
+
+state 19
+
+    (11) expresion_numerica -> expresion MAS . expresion
+    (7) expresion -> . primitiva
+    (8) expresion -> . expresion_unaria
+    (9) expresion -> . expresion_numerica
+    (10) expresion -> . PARIZQ expresion PARDER
+    (17) primitiva -> . ENTERO
+    (18) primitiva -> . DECIMAL
+    (16) expresion_unaria -> . MENOS expresion
+    (11) expresion_numerica -> . expresion MAS expresion
+    (12) expresion_numerica -> . expresion MENOS expresion
+    (13) expresion_numerica -> . expresion POR expresion
+    (14) expresion_numerica -> . expresion DIVIDIDO expresion
+    (15) expresion_numerica -> . expresion RESTO expresion
+
+    PARIZQ          shift and go to state 9
+    ENTERO          shift and go to state 14
+    DECIMAL         shift and go to state 15
+    MENOS           shift and go to state 16
+
+    expresion                      shift and go to state 27
+    primitiva                      shift and go to state 11
+    expresion_unaria               shift and go to state 12
+    expresion_numerica             shift and go to state 13
+
+state 20
+
+    (12) expresion_numerica -> expresion MENOS . expresion
+    (7) expresion -> . primitiva
+    (8) expresion -> . expresion_unaria
+    (9) expresion -> . expresion_numerica
+    (10) expresion -> . PARIZQ expresion PARDER
+    (17) primitiva -> . ENTERO
+    (18) primitiva -> . DECIMAL
+    (16) expresion_unaria -> . MENOS expresion
+    (11) expresion_numerica -> . expresion MAS expresion
+    (12) expresion_numerica -> . expresion MENOS expresion
+    (13) expresion_numerica -> . expresion POR expresion
+    (14) expresion_numerica -> . expresion DIVIDIDO expresion
+    (15) expresion_numerica -> . expresion RESTO expresion
+
+    PARIZQ          shift and go to state 9
+    ENTERO          shift and go to state 14
+    DECIMAL         shift and go to state 15
+    MENOS           shift and go to state 16
+
+    expresion                      shift and go to state 28
+    primitiva                      shift and go to state 11
+    expresion_unaria               shift and go to state 12
+    expresion_numerica             shift and go to state 13
+
+state 21
+
+    (13) expresion_numerica -> expresion POR . expresion
+    (7) expresion -> . primitiva
+    (8) expresion -> . expresion_unaria
+    (9) expresion -> . expresion_numerica
+    (10) expresion -> . PARIZQ expresion PARDER
+    (17) primitiva -> . ENTERO
+    (18) primitiva -> . DECIMAL
+    (16) expresion_unaria -> . MENOS expresion
+    (11) expresion_numerica -> . expresion MAS expresion
+    (12) expresion_numerica -> . expresion MENOS expresion
+    (13) expresion_numerica -> . expresion POR expresion
+    (14) expresion_numerica -> . expresion DIVIDIDO expresion
+    (15) expresion_numerica -> . expresion RESTO expresion
+
+    PARIZQ          shift and go to state 9
+    ENTERO          shift and go to state 14
+    DECIMAL         shift and go to state 15
+    MENOS           shift and go to state 16
+
+    expresion                      shift and go to state 29
+    primitiva                      shift and go to state 11
+    expresion_unaria               shift and go to state 12
+    expresion_numerica             shift and go to state 13
+
+state 22
+
+    (14) expresion_numerica -> expresion DIVIDIDO . expresion
+    (7) expresion -> . primitiva
+    (8) expresion -> . expresion_unaria
+    (9) expresion -> . expresion_numerica
+    (10) expresion -> . PARIZQ expresion PARDER
+    (17) primitiva -> . ENTERO
+    (18) primitiva -> . DECIMAL
+    (16) expresion_unaria -> . MENOS expresion
+    (11) expresion_numerica -> . expresion MAS expresion
+    (12) expresion_numerica -> . expresion MENOS expresion
+    (13) expresion_numerica -> . expresion POR expresion
+    (14) expresion_numerica -> . expresion DIVIDIDO expresion
+    (15) expresion_numerica -> . expresion RESTO expresion
+
+    PARIZQ          shift and go to state 9
+    ENTERO          shift and go to state 14
+    DECIMAL         shift and go to state 15
+    MENOS           shift and go to state 16
+
+    expresion                      shift and go to state 30
+    primitiva                      shift and go to state 11
+    expresion_unaria               shift and go to state 12
+    expresion_numerica             shift and go to state 13
+
+state 23
+
+    (15) expresion_numerica -> expresion RESTO . expresion
+    (7) expresion -> . primitiva
+    (8) expresion -> . expresion_unaria
+    (9) expresion -> . expresion_numerica
+    (10) expresion -> . PARIZQ expresion PARDER
+    (17) primitiva -> . ENTERO
+    (18) primitiva -> . DECIMAL
+    (16) expresion_unaria -> . MENOS expresion
+    (11) expresion_numerica -> . expresion MAS expresion
+    (12) expresion_numerica -> . expresion MENOS expresion
+    (13) expresion_numerica -> . expresion POR expresion
+    (14) expresion_numerica -> . expresion DIVIDIDO expresion
+    (15) expresion_numerica -> . expresion RESTO expresion
+
+    PARIZQ          shift and go to state 9
+    ENTERO          shift and go to state 14
+    DECIMAL         shift and go to state 15
+    MENOS           shift and go to state 16
+
+    expresion                      shift and go to state 31
+    primitiva                      shift and go to state 11
+    expresion_unaria               shift and go to state 12
+    expresion_numerica             shift and go to state 13
+
+state 24
+
+    (16) expresion_unaria -> MENOS expresion .
+    (11) expresion_numerica -> expresion . MAS expresion
+    (12) expresion_numerica -> expresion . MENOS expresion
+    (13) expresion_numerica -> expresion . POR expresion
+    (14) expresion_numerica -> expresion . DIVIDIDO expresion
+    (15) expresion_numerica -> expresion . RESTO expresion
+
+    PARDER          reduce using rule 16 (expresion_unaria -> MENOS expresion .)
+    MAS             reduce using rule 16 (expresion_unaria -> MENOS expresion .)
+    MENOS           reduce using rule 16 (expresion_unaria -> MENOS expresion .)
+    POR             reduce using rule 16 (expresion_unaria -> MENOS expresion .)
+    DIVIDIDO        reduce using rule 16 (expresion_unaria -> MENOS expresion .)
+    RESTO           reduce using rule 16 (expresion_unaria -> MENOS expresion .)
+
+  ! MAS             [ shift and go to state 19 ]
+  ! MENOS           [ shift and go to state 20 ]
+  ! POR             [ shift and go to state 21 ]
+  ! DIVIDIDO        [ shift and go to state 22 ]
+  ! RESTO           [ shift and go to state 23 ]
+
+
+state 25
+
+    (10) expresion -> PARIZQ expresion PARDER .
+
+    PARDER          reduce using rule 10 (expresion -> PARIZQ expresion PARDER .)
+    MAS             reduce using rule 10 (expresion -> PARIZQ expresion PARDER .)
+    MENOS           reduce using rule 10 (expresion -> PARIZQ expresion PARDER .)
+    POR             reduce using rule 10 (expresion -> PARIZQ expresion PARDER .)
+    DIVIDIDO        reduce using rule 10 (expresion -> PARIZQ expresion PARDER .)
+    RESTO           reduce using rule 10 (expresion -> PARIZQ expresion PARDER .)
+
+
+state 26
+
+    (6) imprimir_instr -> IMPRIMIR PARIZQ expresion PARDER PTCOMA .
+
+    error           reduce using rule 6 (imprimir_instr -> IMPRIMIR PARIZQ expresion PARDER PTCOMA .)
+    IMPRIMIR        reduce using rule 6 (imprimir_instr -> IMPRIMIR PARIZQ expresion PARDER PTCOMA .)
+    $end            reduce using rule 6 (imprimir_instr -> IMPRIMIR PARIZQ expresion PARDER PTCOMA .)
+
+
+state 27
+
+    (11) expresion_numerica -> expresion MAS expresion .
+    (11) expresion_numerica -> expresion . MAS expresion
+    (12) expresion_numerica -> expresion . MENOS expresion
+    (13) expresion_numerica -> expresion . POR expresion
+    (14) expresion_numerica -> expresion . DIVIDIDO expresion
+    (15) expresion_numerica -> expresion . RESTO expresion
+
+    PARDER          reduce using rule 11 (expresion_numerica -> expresion MAS expresion .)
+    MAS             reduce using rule 11 (expresion_numerica -> expresion MAS expresion .)
+    MENOS           reduce using rule 11 (expresion_numerica -> expresion MAS expresion .)
+    POR             shift and go to state 21
+    DIVIDIDO        shift and go to state 22
+    RESTO           shift and go to state 23
+
+  ! POR             [ reduce using rule 11 (expresion_numerica -> expresion MAS expresion .) ]
+  ! DIVIDIDO        [ reduce using rule 11 (expresion_numerica -> expresion MAS expresion .) ]
+  ! RESTO           [ reduce using rule 11 (expresion_numerica -> expresion MAS expresion .) ]
+  ! MAS             [ shift and go to state 19 ]
+  ! MENOS           [ shift and go to state 20 ]
+
+
+state 28
+
+    (12) expresion_numerica -> expresion MENOS expresion .
+    (11) expresion_numerica -> expresion . MAS expresion
+    (12) expresion_numerica -> expresion . MENOS expresion
+    (13) expresion_numerica -> expresion . POR expresion
+    (14) expresion_numerica -> expresion . DIVIDIDO expresion
+    (15) expresion_numerica -> expresion . RESTO expresion
+
+    PARDER          reduce using rule 12 (expresion_numerica -> expresion MENOS expresion .)
+    MAS             reduce using rule 12 (expresion_numerica -> expresion MENOS expresion .)
+    MENOS           reduce using rule 12 (expresion_numerica -> expresion MENOS expresion .)
+    POR             shift and go to state 21
+    DIVIDIDO        shift and go to state 22
+    RESTO           shift and go to state 23
+
+  ! POR             [ reduce using rule 12 (expresion_numerica -> expresion MENOS expresion .) ]
+  ! DIVIDIDO        [ reduce using rule 12 (expresion_numerica -> expresion MENOS expresion .) ]
+  ! RESTO           [ reduce using rule 12 (expresion_numerica -> expresion MENOS expresion .) ]
+  ! MAS             [ shift and go to state 19 ]
+  ! MENOS           [ shift and go to state 20 ]
+
+
+state 29
+
+    (13) expresion_numerica -> expresion POR expresion .
+    (11) expresion_numerica -> expresion . MAS expresion
+    (12) expresion_numerica -> expresion . MENOS expresion
+    (13) expresion_numerica -> expresion . POR expresion
+    (14) expresion_numerica -> expresion . DIVIDIDO expresion
+    (15) expresion_numerica -> expresion . RESTO expresion
+
+    PARDER          reduce using rule 13 (expresion_numerica -> expresion POR expresion .)
+    MAS             reduce using rule 13 (expresion_numerica -> expresion POR expresion .)
+    MENOS           reduce using rule 13 (expresion_numerica -> expresion POR expresion .)
+    POR             reduce using rule 13 (expresion_numerica -> expresion POR expresion .)
+    DIVIDIDO        reduce using rule 13 (expresion_numerica -> expresion POR expresion .)
+    RESTO           reduce using rule 13 (expresion_numerica -> expresion POR expresion .)
+
+  ! MAS             [ shift and go to state 19 ]
+  ! MENOS           [ shift and go to state 20 ]
+  ! POR             [ shift and go to state 21 ]
+  ! DIVIDIDO        [ shift and go to state 22 ]
+  ! RESTO           [ shift and go to state 23 ]
+
+
+state 30
+
+    (14) expresion_numerica -> expresion DIVIDIDO expresion .
+    (11) expresion_numerica -> expresion . MAS expresion
+    (12) expresion_numerica -> expresion . MENOS expresion
+    (13) expresion_numerica -> expresion . POR expresion
+    (14) expresion_numerica -> expresion . DIVIDIDO expresion
+    (15) expresion_numerica -> expresion . RESTO expresion
+
+    PARDER          reduce using rule 14 (expresion_numerica -> expresion DIVIDIDO expresion .)
+    MAS             reduce using rule 14 (expresion_numerica -> expresion DIVIDIDO expresion .)
+    MENOS           reduce using rule 14 (expresion_numerica -> expresion DIVIDIDO expresion .)
+    POR             reduce using rule 14 (expresion_numerica -> expresion DIVIDIDO expresion .)
+    DIVIDIDO        reduce using rule 14 (expresion_numerica -> expresion DIVIDIDO expresion .)
+    RESTO           reduce using rule 14 (expresion_numerica -> expresion DIVIDIDO expresion .)
+
+  ! MAS             [ shift and go to state 19 ]
+  ! MENOS           [ shift and go to state 20 ]
+  ! POR             [ shift and go to state 21 ]
+  ! DIVIDIDO        [ shift and go to state 22 ]
+  ! RESTO           [ shift and go to state 23 ]
+
+
+state 31
+
+    (15) expresion_numerica -> expresion RESTO expresion .
+    (11) expresion_numerica -> expresion . MAS expresion
+    (12) expresion_numerica -> expresion . MENOS expresion
+    (13) expresion_numerica -> expresion . POR expresion
+    (14) expresion_numerica -> expresion . DIVIDIDO expresion
+    (15) expresion_numerica -> expresion . RESTO expresion
+
+    PARDER          reduce using rule 15 (expresion_numerica -> expresion RESTO expresion .)
+    MAS             reduce using rule 15 (expresion_numerica -> expresion RESTO expresion .)
+    MENOS           reduce using rule 15 (expresion_numerica -> expresion RESTO expresion .)
+    POR             reduce using rule 15 (expresion_numerica -> expresion RESTO expresion .)
+    DIVIDIDO        reduce using rule 15 (expresion_numerica -> expresion RESTO expresion .)
+    RESTO           reduce using rule 15 (expresion_numerica -> expresion RESTO expresion .)
+
+  ! MAS             [ shift and go to state 19 ]
+  ! MENOS           [ shift and go to state 20 ]
+  ! POR             [ shift and go to state 21 ]
+  ! DIVIDIDO        [ shift and go to state 22 ]
+  ! RESTO           [ shift and go to state 23 ]
+
