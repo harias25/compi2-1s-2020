@@ -19,6 +19,7 @@ El lenguaje utilizará una notación y precedencia estándar de las expresiones 
 
 ###### Operaciones Lógicas
 El lenguaje utilizará una notación y precedencia estándar de las expresiones Lógicas siguientes
+    
     AND &
     OR  |
     NOT !
