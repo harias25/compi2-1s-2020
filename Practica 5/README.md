@@ -1,5 +1,5 @@
 # Laboratorio Organización de Lenguajes y Compiladores 2 Sección C
-## Practica 6
+## Practica 5
 
 #### Instrucciones 
 Se desarrollará un interprete que reciba como entrada un archivo de texto para ejecutar instrucciones básicas similares al lenguaje JAVA las cuales se iran definiendo y limitando en cada práctica.
