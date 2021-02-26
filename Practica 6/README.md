@@ -23,9 +23,9 @@ _Ejemplos de estas instrucciones_
 
 ``` java 
 struct Books {
-   String  title;
-   String  author;
-   String  subject;
+   string  title;
+   string  author;
+   string  subject;
    int   book_id;
 };
     
@@ -49,7 +49,7 @@ El acceso a dichos Structs se realizara la siguiente forma.
 ``` java 
 Books libros1, libros2;
 
-libros1.title = "Compiladores 2";
+libros1.title = 'Compiladores 2';
 
 println(libros1.tittle);
 
