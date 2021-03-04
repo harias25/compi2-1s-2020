@@ -1,5 +1,5 @@
 # Laboratorio Organización de Lenguajes y Compiladores 2 Sección C
-## Practica 6
+## Practica 5
 
 #### Instrucciones 
 Se desarrollará un interprete que reciba como entrada un archivo de texto para ejecutar instrucciones básicas similares al lenguaje JAVA las cuales se iran definiendo y limitando en cada práctica.
@@ -11,7 +11,7 @@ Con el inteprete construido en los laboratorios anteriores, se deben agregar las
 
 Ya que se esta simulando un lenguaje similar a JAVA, se pueden definir Funciones y Procedimientos, estas deben ir declaradas hasta el inicio del programa, y ya no se podrá tener el código instrucciones sueltas mas que declaración de variables.
 
-Por lo cual deberá de existir de manera obligatoria un metodo llamado *main()* para que el interprete inicie su ejecución desde este punto.
+Por lo cual deberá de existir de manera obligatoria un metodo llamado *main()* para que el interprete inicie su ejecución desde este punto, unicamente permitirá de forma global declarar variables, definir structs y definir funciones y procedimientos.
 
 _Los tipos de definiciones funciones y procedimientos serán los siguientes_
 
